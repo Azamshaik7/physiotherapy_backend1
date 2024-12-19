@@ -4,8 +4,16 @@ const app = express();
 const connectDB = require('./config/db');
 const authRouter = require('./routes/authRoutes'); // Import the auth router
 
+const corsOptions = {
+  origin: 'http://localhost:3000',  // Update with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+
 // Middleware setup
-app.use(cors());
+
 app.use(express.json()); // Make sure to use JSON parser
 
 // Use the auth router for '/api/auth' prefix
