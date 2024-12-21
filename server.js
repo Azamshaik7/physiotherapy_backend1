@@ -5,7 +5,7 @@ const connectDB = require('./config/db');
 const authRouter = require('./routes/authRoutes'); // Import the auth router
 
 const corsOptions = {
-  origin: 'https://azamshaik7.github.io/physiotherapistwebsite',  // Update with your frontend URL
+  origin: 'https://azamshaik7.github.io',  // Update with your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
