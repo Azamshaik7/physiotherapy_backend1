@@ -97,6 +97,36 @@ const bookAppointment = async (req, res) => {
   }
 };
 
+const bookAppointmentTwo = async (req, res) => {
+  try {
+    const { firstName, lastName, phoneNumber, date, service } = req.body;
+
+    // Ensure that the userId is coming from the authenticated user
+    if (!req.user || !req.user.userId) {
+      return res.status(401).json({ message: 'Unauthorized: No user found' });
+    }
+
+    // Create a new appointment with the userId
+    const appointment = new bookAppointmenttwo({
+      userId: req.user.userId, // Link to the logged-in user's ID
+      firstName,
+      lastName,
+      phoneNumber,
+      date,
+      service
+    });
+
+    // Save the appointment
+    await appointment.save();
+
+    return res.status(201).json(appointment);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Failed to book appointment' });
+  }
+};
+
+
 
 
 // Get all appointments for a user
@@ -120,4 +150,4 @@ const getAppointments = async (req, res) => {
 
 
 
-module.exports = { signup, login, bookAppointment, getAppointments };
+module.exports = { signup, login, bookAppointment, getAppointments ,bookAppointmentTwo };
