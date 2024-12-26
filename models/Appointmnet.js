@@ -7,14 +7,14 @@ const appointmentSchema = new mongoose.Schema(
       ref: 'User', // Reference to the User model
       required: true, // Ensure every appointment is linked to a user
     },
-    firstName: {
-      type: String,
-      required: true,
-    },
-    lastName: {
-      type: String,
-      required: true,
-    },
+    // firstName: {
+    //   type: String,
+    //   required: true,
+    // },
+    // lastName: {
+    //   type: String,
+    //   required: true,
+    // },
     phoneNumber: {
       type: String,
       required: true,
