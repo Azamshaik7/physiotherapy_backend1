@@ -80,7 +80,7 @@ const bookAppointment = async (req, res) => {
       userId: req.user.userId, // Link to the logged-in user's ID
       // firstName,
       // lastName,
-      phoneNumber,
+      // phoneNumber,
       date,
       service,
       doctors,
